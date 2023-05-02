@@ -25,8 +25,8 @@ function App() {
             <Route path="products/:category" element={<ProductList />} />
             <Route path="product/:id" element={<SingleProduct />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="orderSuccess" element={<Success />} />
           </Route>
-          <Route path="/order/success" element={<Success />} />
         </Routes>
       </Router>
     </div>
