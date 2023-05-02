@@ -1,12 +1,11 @@
 import "./cart.css";
 import { Breadcrumbs, Typography } from "@mui/material";
 import CartProduct from "./CartProduct";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../context/cartContext/CartContext";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { getCart } from "../../context/cartContext/apiCalls";
-import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { api } from "../../api";
 

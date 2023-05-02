@@ -26,3 +26,19 @@
     color: black;
     cursor: pointer;
 }
+@media screen and (max-width: 990px) {
+    .footer-container{
+        margin: 0;
+    }
+    .policies{
+      display: none;
+    }
+    .helpline{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    .footer-container{
+       font-size: 10px;
+    }
+  }

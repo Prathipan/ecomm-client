@@ -8,3 +8,16 @@
 .discover-headings{
     margin: 50px 100px;
 }
+
+@media screen and (max-width: 500px) {
+    .discover-headings{
+        font-size: 10px;
+        margin: 20px 50px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .discover-headings{
+        font-size: 6px;
+    }
+}

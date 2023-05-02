@@ -1,0 +1,40 @@
+.order-title{
+    text-align: center;
+    margin: 30px 0;
+    font-weight: 300;
+}
+.order-details{ 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.order-details-wrapper{
+    margin: 15px 10px 0;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.ordered-products-comp{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.order-cards{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.back{
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}

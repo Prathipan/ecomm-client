@@ -23,3 +23,15 @@
     cursor: pointer;
     font-weight: 600;
 }
+@media screen and (max-width: 410px) {
+    .card-wrapper{
+        width: 320px;
+      height: 200px;
+    }
+    .card-info{
+        font-size: 12px;
+    }
+    .cardImg{
+        height: 160px;
+    }
+}

@@ -8,6 +8,7 @@
 .step-img-container{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .wrapper-content{
     display: flex;

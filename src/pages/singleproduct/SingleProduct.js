@@ -106,11 +106,11 @@ const SingleProduct = () => {
           </div>
           <div className="quantity-container">
             <div className="quantity">
-              <Button onClick={()=>handleQuan("dec")}>
+              <Button onClick={()=>handleQuan("dec")} >
                 <Remove />
               </Button>
               <span className="value">{quantity}</span>
-              <Button onClick={()=>handleQuan("inc")}>
+              <Button onClick={()=>handleQuan("inc")} > 
                 <Add />
               </Button>
             </div>

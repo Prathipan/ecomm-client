@@ -8,3 +8,18 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+@media screen and (max-width: 500px) {
+    .arrival-headings{
+        font-size: 10px;
+        margin: 20px 50px;
+    }
+    .arrival-card{
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .arrival-headings{
+        font-size: 6px;
+    }
+}

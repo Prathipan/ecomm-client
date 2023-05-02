@@ -77,6 +77,12 @@ const Login = () => {
             <button className="register-button" onClick={handleSubmit}>
               Login
             </button>
+            <div className="text-bottom">
+              <hr style={{width: "90%",color : "gray",marginTop : "25px"}} />
+              <Link to={`/register`}>
+                <button className="signIn-btn">Sign Up</button>
+              </Link>
+            </div>
           </form>
         </div>
         <div className="form-left">

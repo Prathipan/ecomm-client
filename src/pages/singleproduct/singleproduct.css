@@ -90,7 +90,6 @@
     color: white;
 }
 .quantity-container{
-    /* width: 50%; */
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
@@ -126,4 +125,60 @@
 }
 .add-to-cart:hover{
     background-color: rgb(32, 32, 32);
+}
+
+@media screen and (max-width: 1500px) {
+    .image-element{
+        height: 70vh;
+    }
+    .sizeFilter{
+        width: 125px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .image-element{
+        height: 50vh;
+    }
+    
+}
+@media screen and (max-width: 900px) {
+    .single-product-container{
+        flex-direction: column;
+      }
+    .image-element{
+        width: 35%;
+    }
+}
+@media screen and (max-width: 555px) {
+    .image-element{
+        height: 100%;
+    }
+    .add-to-cart{
+        padding: 8px 5px;
+    }
+}
+@media screen and (max-width: 490px) {
+    .quantity-container{
+        font-size: 12px;
+    }
+    .quantity-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .quantity{
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .single-title{
+        font-size: 20px;
+    }
+    .price{
+        width: 40px;
+        font-size: 13px;
+    }
+    .filter-title{
+        font-size: 12px;
+    }
+    
 }

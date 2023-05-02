@@ -10,6 +10,8 @@ import Portal from "./pages/Portal";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import Success from "./pages/success/Success";
+import Orders from "./pages/orders/Orders";
+import OrderCard from "./pages/orders/OrderCard";
 
 function App() {
   const {user} = useContext(AuthContext)
@@ -25,6 +27,8 @@ function App() {
             <Route path="products/:category" element={<ProductList />} />
             <Route path="product/:id" element={<SingleProduct />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="my-orders" element={<Orders />} />
+            <Route path="ordered-products" element={<OrderCard />} />
             <Route path="orderSuccess" element={<Success />} />
           </Route>
         </Routes>

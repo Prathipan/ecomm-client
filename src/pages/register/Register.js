@@ -25,10 +25,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${api}/auth/register`,
-        userDetails
-      );
+      const res = await axios.post(`${api}/auth/register`, userDetails);
       navigate("/");
       setUserDetails({
         userName: "",
@@ -48,7 +45,7 @@ const Register = () => {
         <div className="form-left">
           <div>
             <h1 style={{ textAlign: "center" }}>Welcome folks!!</h1>
-            <p>
+            <p >
               To keep connected with us please login with your personal info
             </p>
             <Link to={`/`}>
@@ -125,6 +122,12 @@ const Register = () => {
             >
               Register
             </button>
+            <div className="text-bottom">
+              <hr style={{width: "90%",color : "gray",marginTop : "25px"}} />
+              <Link to={`/`}>
+                <button className="signIn-btn">Sign In</button>
+              </Link>
+            </div>
           </form>
         </div>
       </div>

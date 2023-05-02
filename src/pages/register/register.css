@@ -71,3 +71,39 @@
     margin-top: 10px;
     cursor: pointer;
 }
+.form-container{
+      margin-left: 20px;  
+}
+.text-bottom{
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .input-box{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .form-left {
+      display: none;
+    }
+    .form-right{
+        width: 80%;
+        margin-left: 25px;
+    }
+    .text-bottom{
+        display: block;
+    }
+    .signIn-btn{
+        background-color: #23b182;
+        border: 1px solid white;
+        border-radius: 15px;
+        color: white;
+        padding: 5px 15px;
+        margin: 20px 40%;
+        font-size: 20px;
+        cursor: pointer;
+    }
+  }
