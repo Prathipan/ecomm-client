@@ -1,0 +1,73 @@
+.register-container{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-wrapper{
+    height: 90vh;
+    width: 90vw;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 2px 3px 9px 0px rgba(0,0,0,0.75);
+}
+.form-left{
+    width: 40%;
+    background-color: #23b182;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.signIn-btn{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 15px;
+    color: white;
+    padding: 5px 10px;
+    margin: 0 40%;
+    font-size: 20px;
+    cursor: pointer;
+}
+.form-right{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-box{
+    margin-top: 15px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.form-icon{
+    margin: 0 10px;
+}
+.input-field{
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 90%;
+}
+.form-bottom{
+    display: flex;
+    flex-direction: column;
+}
+.terms-conditions{
+    margin-top: 15px;
+}
+.register-button{
+    background-color: #23b182;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}

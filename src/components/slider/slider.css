@@ -1,0 +1,73 @@
+.slider-container {
+  overflow: hidden;
+  position: relative;
+}
+.arrow {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.left-arr {
+  left: 10px;
+}
+.right-arr {
+  right: 10px;
+}
+.arrow:hover {
+  border: 1px solid gray;
+}
+.slide { 
+  background-color: #e8ffd9e3;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  display: none;
+  /* opacity: 0; */
+  transition: all 1s ease;
+}
+.active-anim {
+  display: flex;
+  /* opacity: 1; */
+}
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 20px;
+}
+.desc {
+  color: gray;
+  font-size: 24px;
+}
+.title {
+  font-size: 70px !important;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.explore-button {
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  border-radius: 35px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.poster-img {
+  height: 450px;
+}
+.explore-button:hover {
+  background-color: rgba(31, 30, 30, 0.952);
+}

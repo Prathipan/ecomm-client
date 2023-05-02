@@ -1,0 +1,74 @@
+.navbar-container {
+  padding: 0 10px 10px;
+  height: 60px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 3px -8px 18px 0px rgba(0, 0, 0, 0.75);
+  z-index: 99;
+}
+.nav-logo{
+  color: inherit;
+  text-decoration: none;
+}
+.navbar-wrapper {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon {
+  color: gray;
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 25px !important;
+  cursor: pointer;
+}
+.icon:hover {
+  background-color: rgba(106, 163, 255, 0.185);
+}
+.left {
+  display: flex;
+  align-items: center;
+}
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.listItems {
+  list-style: none;
+  display: flex !important;
+  justify-content: space-between;
+}
+.item {
+  margin: 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 20px;
+  color: gray;
+  text-decoration: none;
+}
+.item:hover {
+  background-color: rgba(106, 163, 255, 0.185);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.options {
+  background-color: white !important;
+  border: 1px solid gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--main-color);
+  padding: 0px 15px;
+  border-radius: 5px;
+}
+.options span{
+  padding: 5px;
+  margin: 5px;
+  border-bottom: 1px solid gray;
+  cursor: pointer;
+}

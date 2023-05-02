@@ -1,0 +1,10 @@
+
+.discover-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+.discover-headings{
+    margin: 50px 100px;
+}

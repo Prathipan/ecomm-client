@@ -1,0 +1,25 @@
+.card-container{
+    margin: 5px;
+    position: relative;
+}
+.card-wrapper{
+    border: none;
+    border-radius: 15px;
+    width: 400px;
+    height: 250px;
+    padding: 20px;
+    display: flex;
+}
+.cardImg{
+    height: 200px;
+}
+.showBtn{
+    background-color: white;
+    border-radius: 25px;
+    padding: 15px 30px;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
