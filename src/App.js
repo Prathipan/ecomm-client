@@ -12,6 +12,7 @@ import { AuthContext } from "./context/authContext/AuthContext";
 import Success from "./pages/success/Success";
 import Orders from "./pages/orders/Orders";
 import OrderCard from "./pages/orders/OrderCard";
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const {user} = useContext(AuthContext)

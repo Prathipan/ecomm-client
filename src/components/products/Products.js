@@ -14,7 +14,9 @@ const Products = ({ categ }) => {
           `${api}/products?${categ ? "category=" + categ : ""}`,
           {
             headers: {
-              token: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`,
+              token: `Bearer ${
+                JSON.parse(localStorage.getItem("user")).accessToken
+              }`,
             },
           }
         );

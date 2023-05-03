@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../context/authContext/apiCalls";
 import { AuthContext } from "../../context/authContext/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [loginDetails, setLoginDetails] = useState({
@@ -22,15 +23,42 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      login(loginDetails, dispatch);
-      setLoginDetails({
-        userName: "",
-        email: "",
-        password: "",
+    if (
+      loginDetails.userName === "" ||
+      loginDetails.email === ""  ||
+      loginDetails.password === ""  
+    ) {
+      toast.warn("Enter all mandatory fields", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
-    } catch (error) {
-      console.log(error);
+    } else {
+      try {
+        login(loginDetails, dispatch);
+        setLoginDetails({
+          userName: "",
+          email: "",
+          password: "",
+        });
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
@@ -77,8 +105,20 @@ const Login = () => {
             <button className="register-button" onClick={handleSubmit}>
               Login
             </button>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
             <div className="text-bottom">
-              <hr style={{width: "90%",color : "gray",marginTop : "25px"}} />
+              <hr style={{ width: "90%", color: "gray", marginTop: "25px" }} />
               <Link to={`/register`}>
                 <button className="signIn-btn">Sign Up</button>
               </Link>

@@ -1,6 +1,4 @@
 import { useState } from "react";
-// import { useLocation } from "react-router-dom";
-// import Products from "../../components/products/Products";
 import "./productlist.css";
 import Products from "../../components/products/Products";
 import { useLocation } from "react-router-dom";

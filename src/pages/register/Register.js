@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { api } from "../../api";
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -24,18 +25,57 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post(`${api}/auth/register`, userDetails);
-      navigate("/");
-      setUserDetails({
-        userName: "",
-        email: "",
-        mobile: "",
-        password: "",
-        confirmPassword: "",
+    if (
+      userDetails.userName === "" ||
+      userDetails.email === "" ||
+      userDetails.mobile === "" ||
+      userDetails.password === "" ||
+      userDetails.confirmPassword === ""
+    ) {
+      toast.warn("Enter all mandatory fields", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
-    } catch (error) {
-      console.log(error);
+    } else {
+      try {
+        const res = await axios.post(`${api}/auth/register`, userDetails);
+        navigate("/");
+        setUserDetails({
+          userName: "",
+          email: "",
+          mobile: "",
+          password: "",
+          confirmPassword: "",
+        });
+        toast.success("Account Created Successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } catch (error) {
+        // console.log(error);
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 
@@ -45,7 +85,7 @@ const Register = () => {
         <div className="form-left">
           <div>
             <h1 style={{ textAlign: "center" }}>Welcome folks!!</h1>
-            <p >
+            <p>
               To keep connected with us please login with your personal info
             </p>
             <Link to={`/`}>
@@ -122,8 +162,20 @@ const Register = () => {
             >
               Register
             </button>
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
             <div className="text-bottom">
-              <hr style={{width: "90%",color : "gray",marginTop : "25px"}} />
+              <hr style={{ width: "90%", color: "gray", marginTop: "25px" }} />
               <Link to={`/`}>
                 <button className="signIn-btn">Sign In</button>
               </Link>
