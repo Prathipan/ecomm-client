@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { login } from "../../context/authContext/apiCalls";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
+import { CircularProgress } from "@mui/material";
 
 const Login = () => {
   const [loginDetails, setLoginDetails] = useState({
@@ -12,7 +13,7 @@ const Login = () => {
     password: "",
   });
 
-  const { dispatch } = useContext(AuthContext);
+  const { isFetching, dispatch } = useContext(AuthContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,8 +26,8 @@ const Login = () => {
     e.preventDefault();
     if (
       loginDetails.userName === "" ||
-      loginDetails.email === ""  ||
-      loginDetails.password === ""  
+      loginDetails.email === "" ||
+      loginDetails.password === ""
     ) {
       toast.warn("Enter all mandatory fields", {
         position: "top-right",
@@ -68,6 +69,11 @@ const Login = () => {
         <div className="form-right">
           <form className="form-container">
             <h1>Login into an Account</h1>
+            <div className="credentials">
+              <span>User Name : Test User || </span>
+              <span>email : testUser@gmail.com || </span>
+              <span>Password : 123456</span>
+            </div>
             <div className="input-box">
               <Person className="form-icon" />
               <input
@@ -101,10 +107,14 @@ const Login = () => {
                 onChange={handleChange}
               />
             </div>
+            {isFetching ? (
+              <CircularProgress className="progress-bar" color="success" />
+            ) : (
+              <button className="register-button" onClick={handleSubmit}>
+                Login
+              </button>
+            )}
 
-            <button className="register-button" onClick={handleSubmit}>
-              Login
-            </button>
             <ToastContainer
               position="top-right"
               autoClose={5000}

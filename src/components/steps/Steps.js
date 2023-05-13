@@ -8,9 +8,9 @@ const Steps = () => {
         <h1>Steps to be done</h1>
       </div>
       <div className="step-img-container">
-        {stepsList.map((step) => {
+        {stepsList.map((step,index) => {
           return (
-            <div className="wrapper-content">
+            <div key={index} className="wrapper-content">
               <img className="step-img" src={step.img} alt="" />
               <span style={{backgroundColor : step.color}} className="step-tag">{step.step}</span>
               <span className="step-title">{step.title}</span>

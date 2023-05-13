@@ -22,7 +22,6 @@ const Slider = () => {
     }
   };
 
-  console.log(slideIndex);
 
   return (
     <div className="slider-container">
@@ -32,7 +31,7 @@ const Slider = () => {
       <div className="slider-wrapper">
         {posterImg.map((poster, index) => {
           return (
-            <div className={slideIndex === index+1 ? "slide active-anim" : "slide"}>
+            <div key={index} className={slideIndex === index+1 ? "slide active-anim" : "slide"}>
               <div className="image-cotainer">
                 <img className="poster-img" src={poster.img} alt="" />
               </div>

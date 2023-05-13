@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./discovercard.css";
 
 const DiscoverCard = ({ card }) => {
-  const navigate = useNavigate();
   // console.log(card)
   return (
     <div className="card-container">
