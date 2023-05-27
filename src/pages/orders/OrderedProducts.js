@@ -23,7 +23,7 @@ const OrderedProducts = ({product}) => {
     },[product])
    
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className="order-card">
       <CardActionArea>
         <CardMedia
           component="img"
