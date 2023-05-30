@@ -17,7 +17,8 @@ const Register = () => {
     userName: yup.string().required("*Please enter your name").min(3),
     email: yup.string().required("*Please enter your email").min(5),
     mobile: yup
-      .string().min(10)
+      .string()
+      .min(10)
       .required("*Please enter your mobile number")
       .matches(phoneRegExp, "Phone number is not valid"),
     password: yup.string().required("*Password is required"),
@@ -173,13 +174,15 @@ const Register = () => {
               <input type="checkbox" checked />I have read the terms and
               conditions for creating an account
             </div> */}
-            <button
-              className="register-button"
-              variant="contained"
-              type="submit"
-            >
-              Register
-            </button>
+            <div>
+              <button
+                className="register-button"
+                variant="contained"
+                type="submit"
+              >
+                Register
+              </button>
+            </div>
             <ToastContainer
               position="top-right"
               autoClose={5000}
