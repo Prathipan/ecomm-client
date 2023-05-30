@@ -33,10 +33,10 @@ const Orders = () => {
     <div className="order-container">
         <h1 className="order-title">My Orders</h1>
         <div className="order-details">
-         {
-          orders.map((order)=>{
+         { orders.length > 0 ? 
+          (orders.map((order)=>{
             return <OrderDetails key={order._id} order={order} />
-          })
+          })) : <p className="no-items">No orders Found</p>
          }
         </div>
     </div>

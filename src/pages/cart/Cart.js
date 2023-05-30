@@ -51,10 +51,10 @@ const Cart = () => {
         <div className="bottom">
           <div className="info">
             <>
-            {
-               products.map((product) =>{
+            { products.length > 0 ?
+               (products.map((product) =>{
                 return <><CartProduct key={product._id}  product={product} /><hr/></>
-              })
+              })) : <p className="no-items">No Items Found in cart</p>
             }
             </>
           </div>
