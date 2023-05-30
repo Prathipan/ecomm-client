@@ -1,73 +1,41 @@
-import { LockPerson, MailOutline, Person } from "@mui/icons-material";
-import { useContext, useState } from "react";
+import {
+  LockPerson,
+  MailOutline,
+  Person
+} from "@mui/icons-material";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../context/authContext/apiCalls";
 import { AuthContext } from "../../context/authContext/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
 import { CircularProgress } from "@mui/material";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
 const Login = () => {
-  const [loginDetails, setLoginDetails] = useState({
-    userName: "",
-    email: "",
-    password: "",
-  });
-
   const { isFetching, dispatch } = useContext(AuthContext);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setLoginDetails((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  const loginValidation = yup.object({
+    email: yup.string().required("*Please enter email address").min(5),
+    password: yup.string().required("*Please enter your password").min(6),
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (
-      loginDetails.userName === "" ||
-      loginDetails.email === "" ||
-      loginDetails.password === ""
-    ) {
-      toast.warn("Enter all mandatory fields", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    } else {
-      try {
-        login(loginDetails, dispatch);
-        setLoginDetails({
-          userName: "",
-          email: "",
-          password: "",
-        });
-      } catch (error) {
-        console.log(error);
-        toast.error(error.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
-    }
-  };
+  const formik = useFormik({
+    initialValues: {
+      userName: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: loginValidation,
+    onSubmit: (loginDetails) => {
+      login(loginDetails, dispatch);
+    },
+  });
 
   return (
     <div className="register-container">
       <div className="register-wrapper">
         <div className="form-right">
-          <form className="form-container">
+          <form className="form-container" onSubmit={formik.handleSubmit}>
             <h1>Login into an Account</h1>
             <div className="credentials">
               <span>User Name : Test User || </span>
@@ -81,10 +49,14 @@ const Login = () => {
                 type="text"
                 placeholder="User Name"
                 name="userName"
-                value={loginDetails.userName}
-                onChange={handleChange}
+                value={formik.values.userName}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
             </div>
+            <span style={{color : "red"}}>{formik.touched.userName && formik.errors.userName
+              ? formik.errors.userName
+              : ""}</span>
             <div className="input-box">
               <MailOutline className="form-icon" />
               <input
@@ -92,10 +64,14 @@ const Login = () => {
                 type="email"
                 placeholder="Email"
                 name="email"
-                value={loginDetails.email}
-                onChange={handleChange}
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
             </div>
+            <span style={{color : "red"}}>{formik.touched.email && formik.errors.email
+              ? formik.errors.email
+              : ""}</span>
             <div className="input-box">
               <LockPerson className="form-icon" />
               <input
@@ -103,34 +79,28 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={loginDetails.password}
-                onChange={handleChange}
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
             </div>
-            {isFetching ? (
-              <CircularProgress className="progress-bar" color="success" />
-            ) : (
-              <button className="register-button" onClick={handleSubmit}>
-                Login
-              </button>
-            )}
-
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-            />
+            <span style={{color : "red"}}>{formik.touched.password && formik.errors.password
+              ? formik.errors.password
+              : ""}</span>
+            
+            <div>
+              {isFetching ? (
+                <CircularProgress className="progress-bar" color="success" />
+              ) : (
+                <button className="register-button" type="submit">
+                  Login
+                </button>
+              )}
+            </div>
             <div className="text-bottom">
               <hr style={{ width: "90%", color: "gray", marginTop: "25px" }} />
               <Link to={`/register`}>
-                <button className="signIn-btn">Sign Up</button>
+                <button className="signIn-btn">Sign up</button>
               </Link>
             </div>
           </form>
